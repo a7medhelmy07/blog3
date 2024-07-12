@@ -82,9 +82,7 @@ class PostController extends Controller
 
     public function update(Request $request, $id , Post $post)
     {
-        if (! Gate::allows('update-post',$post)) {
-           abort(403);
-        }
+       
         $post = Post::find( $id);
         $this->validate($request ,[
             'title' => 'required',
